@@ -467,40 +467,49 @@ python scripts\predict_one.py --image C:\Users\Student\Desktop\test_xray.jpeg
 Очистить только модели:
 
 ```bat
-python scripts\clean_project.py --target models
+python-m scripts\clean_project.py --target models
 ```
 
 Очистить только графики:
 
 ```bat
-python scripts\clean_project.py --target plots
+python-m scripts.clean_project --target plots
 ```
 
 Очистить только предсказания:
 
 ```bat
-python scripts\clean_project.py --target predictions
+python-m scripts.clean_project --target predictions
 ```
 
 Очистить все результаты, но оставить датасет:
 
 ```bat
-python scripts\clean_project.py --target outputs
+python-m scripts.clean_project --target outputs
 ```
 
 Очистить только датасет:
 
 ```bat
-python scripts\clean_project.py --target dataset
+python-m scripts.clean_project --target dataset
 ```
 
-Очистить вообще всё:
+Очистить вообще всё через наш модуль очистки:
 
 ```bat
-python scripts\clean_project.py --target all
+python -m cripts.clean_projects --target all
 ```
 
-После очистки проект можно снова запустить:
+Эта команда удаляет:
+
+- скачанный датасет из `data\chest_xray`;
+- обученные модели из `outputs\models`;
+- графики из `outputs\plots`;
+- файлы с предсказаниями из `outputs\predictions`.
+
+После выполнения команды проект будет почти в исходном состоянии, как до первого запуска. Останутся только исходные файлы программы: `main.py`, `configs`, `scripts`, `src`, `requirements.txt`, `readme.md` и другие служебные файлы проекта.
+
+Если после полной очистки снова выполнить:
 
 ```bat
 python main.py
